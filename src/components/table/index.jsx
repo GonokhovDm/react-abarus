@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import arrowUpSvg from "../../icons/arrow-up.svg";
 import arrowDownSvg from "../../icons/arrow-down.svg";
 
-function Table({ data, onClickSort, directionSort }) {
+function Table({ filteredData, onClickSort, directionSort }) {
 
 	const [fieldData, setFieldData] = useState('');
+
 	const Arrow = () => {
 		return (
 			directionSort ? <img src={arrowDownSvg} alt="" /> : <img src={arrowUpSvg} alt="" />
@@ -27,7 +28,7 @@ function Table({ data, onClickSort, directionSort }) {
 				</tr>
 			</thead>
 			<tbody>
-				{data.map(
+				{filteredData.map(
 					(item => (
 						<tr key={item.id}>
 							<td>{item.id}</td>
